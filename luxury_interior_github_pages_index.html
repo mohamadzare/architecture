@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maison Atelier | Luxury Interior Design</title>
+    <meta
+      name="description"
+      content="Luxury interior design studio crafting elegant, functional, and timeless spaces for residential and hospitality projects."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #1f1f20;
+        --bg-soft: #262628;
+        --panel: #232325;
+        --line: rgba(214, 187, 149, 0.22);
+        --line-strong: rgba(214, 187, 149, 0.45);
+        --text: #f3e5d3;
+        --muted: #b7a996;
+        --muted-2: #8f826f;
+        --accent: #d6bb95;
+        --accent-soft: #ead6bf;
+        --white-soft: rgba(255, 255, 255, 0.08);
+        --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+        --container: 1380px;
+        --radius: 2px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Inter", sans-serif;
+        overflow-x: hidden;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      input {
+        font: inherit;
+      }
+
+      .container {
+        width: min(calc(100% - 40px), var(--container));
+        margin: 0 auto;
+      }
+
+      .serif {
+        font-family: "Cormorant Garamond", serif;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 22px;
+        color: var(--muted);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.34em;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 56px;
+        height: 1px;
+        background: var(--line-strong);
+      }
+
+      .section {
+        padding: 110px 0;
+      }
+
+      .section-title {
+        margin: 0;
+        color: var(--accent-soft);
+        font-size: clamp(2.6rem, 6vw, 4.4rem);
+        line-height: 0.95;
+        font-weight: 500;
+      }
+
+      .section-copy {
+        max-width: 760px;
+        margin: 18px auto 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.9;
+      }
+
+      .thin-divider {
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        backdrop-filter: blur(12px);
+        background: rgba(31, 31, 32, 0.82);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      }
+
+      .header-inner {
+        min-height: 92px;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .logo {
+        justify-self: start;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+        padding: 10px 12px;
+        border: 1px solid var(--line-strong);
+        color: var(--accent-soft);
+        font-size: 10px;
+        line-height: 1.1;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      .logo span:last-child {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 18px;
+        letter-spacing: 0.08em;
+        text-transform: none;
+      }
+
+      .main-nav {
+        display: flex;
+        justify-content: center;
+        gap: clamp(18px, 2.4vw, 42px);
+      }
+
+      .main-nav a,
+      .footer-nav a,
+      .footer-legal a {
+        position: relative;
+        color: var(--text);
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      .main-nav a::after,
+      .footer-nav a::after,
+      .footer-legal a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 100%;
+        height: 1px;
+        background: var(--accent);
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 180ms ease;
+      }
+
+      .main-nav a:hover::after,
+      .footer-nav a:hover::after,
+      .footer-legal a:hover::after {
+        transform: scaleX(1);
+      }
+
+      .header-actions {
+        justify-self: end;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .button,
+      .ghost-button,
+      .mobile-toggle {
+        border: 1px solid var(--line-strong);
+        background: transparent;
+        color: var(--text);
+        cursor: pointer;
+        transition: all 180ms ease;
+      }
+
+      .button,
+      .ghost-button {
+        padding: 14px 22px;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      .button:hover,
+      .ghost-button:hover,
+      .mobile-toggle:hover {
+        background: var(--accent);
+        color: var(--bg);
+      }
+
+      .mobile-toggle {
+        display: none;
+        width: 46px;
+        height: 46px;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+      }
+
+      .hero {
+        position: relative;
+        padding: 68px 0 84px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.03fr) minmax(0, 0.97fr);
+        align-items: center;
+        gap: clamp(40px, 5vw, 72px);
+      }
+
+      .hero-copy {
+        max-width: 620px;
+      }
+
+      .hero-title {
+        margin: 0;
+        max-width: 10ch;
+        color: var(--accent-soft);
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 500;
+        font-size: clamp(3.4rem, 7.2vw, 6.7rem);
+        line-height: 0.9;
+        letter-spacing: -0.02em;
+      }
+
+      .hero-text {
+        max-width: 520px;
+        margin: 26px 0 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.9;
+      }
+
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+        margin-top: 34px;
+      }
+
+      .hero-note {
+        color: var(--muted-2);
+        font-size: 11px;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+      }
+
+      .hero-visual {
+        position: relative;
+        min-height: 640px;
+      }
+
+      .frame-image {
+        position: absolute;
+        box-shadow: var(--shadow);
+      }
+
+      .frame-image::before {
+        content: "";
+        position: absolute;
+        inset: -14px;
+        border: 1px solid var(--line);
+        pointer-events: none;
+      }
+
+      .frame-image img {
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .frame-large {
+        left: 0;
+        bottom: 0;
+        width: min(66%, 430px);
+        height: 420px;
+      }
+
+      .frame-small {
+        top: 18px;
+        right: 14px;
+        width: min(44%, 290px);
+        height: 360px;
+      }
+
+      .hero-detail-card {
+        position: absolute;
+        right: 0;
+        bottom: 54px;
+        width: min(280px, 50%);
+        padding: 22px;
+        border: 1px solid var(--line);
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(6px);
+      }
+
+      .hero-detail-card p:first-child {
+        margin: 0;
+        color: var(--accent);
+        font-size: 11px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+      }
+
+      .hero-detail-card p:last-child {
+        margin: 12px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .logos {
+        padding: 34px 0 42px;
+      }
+
+      .logo-row {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 22px;
+        align-items: center;
+      }
+
+      .logo-mark {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 72px;
+        color: rgba(214, 187, 149, 0.34);
+        font-size: clamp(18px, 2vw, 28px);
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .projects {
+        text-align: center;
+      }
+
+      .projects-stat {
+        margin-top: 16px;
+        color: #f2ebe3;
+        font-size: clamp(2rem, 4.2vw, 3.5rem);
+        font-weight: 300;
+      }
+
+      .projects-grid {
+        margin-top: 54px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .project-card {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(214, 187, 149, 0.14);
+        background: var(--bg-soft);
+        min-height: 250px;
+      }
+
+      .project-card img {
+        height: 100%;
+        object-fit: cover;
+        transition: transform 420ms ease;
+      }
+
+      .project-card:hover img {
+        transform: scale(1.04);
+      }
+
+      .project-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.05));
+      }
+
+      .project-card span {
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
+        z-index: 1;
+        color: var(--text);
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        text-align: left;
+        text-transform: uppercase;
+      }
+
+      .tall {
+        min-height: 530px;
+      }
+
+      .medium {
+        min-height: 340px;
+      }
+
+      .projects-cta {
+        margin-top: 34px;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1.22fr);
+        gap: 46px;
+        align-items: start;
+      }
+
+      .stats-stack {
+        margin-top: 34px;
+        display: grid;
+        gap: 28px;
+      }
+
+      .stat-item {
+        padding-left: 24px;
+        border-left: 1px solid var(--line-strong);
+      }
+
+      .stat-item strong {
+        display: block;
+        color: var(--accent-soft);
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(3rem, 5vw, 4.5rem);
+        line-height: 0.94;
+        font-weight: 500;
+      }
+
+      .stat-item span {
+        display: block;
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .service-list {
+        display: grid;
+        gap: 18px;
+      }
+
+      .service-card {
+        position: relative;
+        padding: 28px 30px 32px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.01);
+      }
+
+      .service-top {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+
+      .service-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border: 1px solid var(--line-strong);
+        color: var(--accent-soft);
+        font-size: 12px;
+        letter-spacing: 0.16em;
+      }
+
+      .service-line {
+        height: 1px;
+        flex: 1;
+        background: var(--line);
+      }
+
+      .service-card h3 {
+        margin: 0;
+        font-size: clamp(1.85rem, 3vw, 2.6rem);
+        font-weight: 300;
+      }
+
+      .service-card p {
+        margin: 14px 0 0;
+        max-width: 640px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.9;
+      }
+
+      .footer {
+        padding: 54px 0 24px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.7fr 0.7fr 0.9fr;
+        gap: 34px;
+      }
+
+      .footer-copy {
+        max-width: 390px;
+        margin-top: 20px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .newsletter {
+        display: flex;
+        gap: 10px;
+        margin-top: 24px;
+        max-width: 420px;
+      }
+
+      .newsletter input {
+        flex: 1;
+        min-width: 0;
+        padding: 14px 16px;
+        border: 1px solid var(--line);
+        background: transparent;
+        color: var(--text);
+        outline: none;
+      }
+
+      .newsletter input::placeholder {
+        color: var(--muted-2);
+      }
+
+      .footer-heading {
+        margin: 0 0 18px;
+        color: var(--accent-soft);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+      }
+
+      .footer-nav,
+      .footer-legal,
+      .contact-list {
+        display: grid;
+        gap: 14px;
+      }
+
+      .contact-list a,
+      .contact-list p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .socials {
+        display: flex;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .socials a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--line);
+        color: var(--accent-soft);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .footer-bottom {
+        margin-top: 34px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        color: var(--muted-2);
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .mobile-drawer {
+        display: none;
+      }
+
+      @media (max-width: 1180px) {
+        .hero-grid,
+        .services-grid,
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-visual {
+          min-height: 600px;
+          max-width: 720px;
+        }
+
+        .footer-copy,
+        .newsletter {
+          max-width: 100%;
+        }
+      }
+
+      @media (max-width: 920px) {
+        .header-inner {
+          grid-template-columns: 1fr auto;
+        }
+
+        .main-nav,
+        .header-actions .button {
+          display: none;
+        }
+
+        .mobile-toggle {
+          display: inline-flex;
+        }
+
+        .mobile-drawer {
+          display: none;
+          padding: 0 0 18px;
+        }
+
+        .mobile-drawer.open {
+          display: block;
+        }
+
+        .mobile-drawer nav {
+          display: grid;
+          gap: 14px;
+          padding-top: 10px;
+        }
+
+        .mobile-drawer a,
+        .mobile-drawer button {
+          width: 100%;
+        }
+
+        .logo-row,
+        .projects-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 700px) {
+        .section {
+          padding: 84px 0;
+        }
+
+        .container {
+          width: min(calc(100% - 28px), var(--container));
+        }
+
+        .hero {
+          padding: 40px 0 56px;
+        }
+
+        .hero-visual {
+          min-height: 510px;
+        }
+
+        .frame-large {
+          width: 68%;
+          height: 320px;
+        }
+
+        .frame-small {
+          width: 44%;
+          height: 240px;
+        }
+
+        .hero-detail-card {
+          width: 56%;
+          bottom: 16px;
+          padding: 18px;
+        }
+
+        .logo-row,
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .tall,
+        .medium,
+        .project-card {
+          min-height: 280px;
+        }
+
+        .newsletter {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="header-inner">
+          <a class="logo" href="#home" aria-label="Maison Atelier home">
+            <span>Home &amp; Life</span>
+            <span>Maison</span>
+          </a>
+
+          <nav class="main-nav" aria-label="Primary navigation">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#services">Services</a>
+          </nav>
+
+          <div class="header-actions">
+            <a class="button" href="#contact">Contact Us</a>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+          </div>
+        </div>
+
+        <div class="mobile-drawer" id="mobileDrawer">
+          <nav aria-label="Mobile navigation">
+            <a class="ghost-button" href="#home">Home</a>
+            <a class="ghost-button" href="#about">About</a>
+            <a class="ghost-button" href="#projects">Projects</a>
+            <a class="ghost-button" href="#services">Services</a>
+            <a class="button" href="#contact">Contact Us</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero thin-divider" id="home">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">Boutique Interior Studio</div>
+            <h1 class="hero-title">Stylish &amp; Functional Space Design</h1>
+            <p class="hero-text">
+              We shape luxurious residential and hospitality interiors with warm materials,
+              bespoke details, and architectural clarity — creating spaces that feel serene,
+              elevated, and beautifully lived in.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="#projects">View Projects</a>
+              <span class="hero-note">Luxury spaces since 1991</span>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Interior design collage">
+            <div class="frame-image frame-large">
+              <img src="./images/hero-1.jpg" alt="Elegant living space with warm tones" />
+            </div>
+            <div class="frame-image frame-small">
+              <img src="./images/hero-2.jpg" alt="Luxury dining room with moody lighting" />
+            </div>
+            <div class="hero-detail-card">
+              <p>Curated Spaces</p>
+              <p>
+                Editorial composition, tailored furniture plans, and refined material palettes for boutique luxury living.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="logos thin-divider" aria-label="Selected client logos">
+        <div class="container">
+          <div class="logo-row">
+            <div class="logo-mark">nh</div>
+            <div class="logo-mark">Hilton</div>
+            <div class="logo-mark">Hyatt</div>
+            <div class="logo-mark">Waldorf</div>
+            <div class="logo-mark">Edition</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section projects thin-divider" id="projects">
+        <div class="container">
+          <h2 class="section-title serif">Projects</h2>
+          <div class="projects-stat">+1000 Completed Projects</div>
+          <p class="section-copy">
+            Our work spans private residences, boutique hospitality, and tailored commercial interiors,
+            each designed with calm luxury, generous proportion, and enduring visual warmth.
+          </p>
+
+          <div class="projects-grid">
+            <a class="project-card medium" href="#contact">
+              <img src="./images/project-1.jpg" alt="Warm living room with beige sofa" />
+              <span>Contemporary Lounge</span>
+            </a>
+            <a class="project-card tall" href="#contact">
+              <img src="./images/project-2.jpg" alt="Architectural interior with dramatic natural light" />
+              <span>Architectural Light</span>
+            </a>
+            <a class="project-card medium" href="#contact">
+              <img src="./images/project-3.jpg" alt="Luxury bedroom with dark finishes" />
+              <span>Boutique Bedroom</span>
+            </a>
+            <a class="project-card tall" href="#contact">
+              <img src="./images/project-4.jpg" alt="Minimal living area with curated furniture" />
+              <span>Refined Living</span>
+            </a>
+            <a class="project-card medium" href="#contact">
+              <img src="./images/project-5.jpg" alt="Soft neutral living room with pendant lights" />
+              <span>Textured Warmth</span>
+            </a>
+            <a class="project-card tall" href="#contact">
+              <img src="./images/project-6.jpg" alt="Luxury fireplace corner with warm ambient lighting" />
+              <span>Statement Details</span>
+            </a>
+          </div>
+
+          <div class="projects-cta">
+            <a class="button" href="#contact">View All Projects</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section thin-divider" id="services">
+        <div class="container services-grid">
+          <div>
+            <h2 class="section-title serif">What We Do</h2>
+            <div class="stats-stack">
+              <div class="stat-item">
+                <strong>+1000</strong>
+                <span>Completed Projects</span>
+              </div>
+              <div class="stat-item">
+                <strong>+250</strong>
+                <span>Happy Customers</span>
+              </div>
+              <div class="stat-item">
+                <strong>+32</strong>
+                <span>Years of Experience</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-list">
+            <article class="service-card">
+              <div class="service-top">
+                <div class="service-number">01</div>
+                <div class="service-line"></div>
+              </div>
+              <h3>Interior Design</h3>
+              <p>
+                We craft indoor environments that balance atmosphere, comfort, and function through careful spatial planning,
+                bespoke millwork, curated furnishings, and richly layered material palettes.
+              </p>
+            </article>
+
+            <article class="service-card">
+              <div class="service-top">
+                <div class="service-number">02</div>
+                <div class="service-line"></div>
+              </div>
+              <h3>Exterior Design</h3>
+              <p>
+                From façade character to outdoor flow, we create exterior experiences that complement architecture,
+                elevate curb appeal, and feel deeply connected to the surrounding environment.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section thin-divider" id="about">
+        <div class="container" style="max-width: 980px; text-align: center;">
+          <div class="eyebrow" style="justify-content: center;">Studio Philosophy</div>
+          <h2 class="section-title serif" style="max-width: 14ch; margin: 0 auto;">
+            Timeless interiors shaped with restraint, warmth, and intention
+          </h2>
+          <p class="section-copy">
+            Maison Atelier is a luxury design studio focused on sophisticated spaces that feel intimate, architectural,
+            and deeply personal. Our process blends editorial styling with functional planning to deliver interiors that are calm,
+            polished, and built to last.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer thin-divider" id="contact">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <a class="logo" href="#home" aria-label="Maison Atelier home">
+              <span>Home &amp; Life</span>
+              <span>Maison</span>
+            </a>
+            <p class="footer-copy">
+              Subscribe to our studio journal for curated inspiration, design notes, and updates from our latest luxury projects.
+            </p>
+            <form class="newsletter">
+              <input type="email" placeholder="Enter your email" aria-label="Email address" />
+              <button class="button" type="submit">Subscribe</button>
+            </form>
+          </div>
+
+          <div>
+            <h3 class="footer-heading">Explore</h3>
+            <nav class="footer-nav" aria-label="Footer navigation">
+              <a href="#home">Home</a>
+              <a href="#about">About</a>
+              <a href="#services">Services</a>
+              <a href="#projects">Projects</a>
+            </nav>
+          </div>
+
+          <div>
+            <h3 class="footer-heading">About</h3>
+            <div class="footer-legal">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms &amp; Conditions</a>
+              <a href="#">Studio Journal</a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="footer-heading">Contact</h3>
+            <div class="contact-list">
+              <a href="mailto:hello@maisonatelier.com">hello@maisonatelier.com</a>
+              <a href="tel:+12125550147">+1 (212) 555-0147</a>
+              <p>27 Mercer Street, New York, NY</p>
+            </div>
+            <div class="socials" aria-label="Social links">
+              <a href="#" aria-label="LinkedIn">in</a>
+              <a href="#" aria-label="Behance">be</a>
+              <a href="#" aria-label="Instagram">ig</a>
+              <a href="#" aria-label="Pinterest">pi</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">© <span id="year"></span> Maison Atelier. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <script>
+      const mobileToggle = document.getElementById("mobileToggle");
+      const mobileDrawer = document.getElementById("mobileDrawer");
+      const mobileLinks = mobileDrawer.querySelectorAll("a");
+      const yearEl = document.getElementById("year");
+
+      yearEl.textContent = new Date().getFullYear();
+
+      mobileToggle.addEventListener("click", () => {
+        const isOpen = mobileDrawer.classList.toggle("open");
+        mobileToggle.setAttribute("aria-expanded", String(isOpen));
+        mobileToggle.textContent = isOpen ? "✕" : "☰";
+      });
+
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileDrawer.classList.remove("open");
+          mobileToggle.setAttribute("aria-expanded", "false");
+          mobileToggle.textContent = "☰";
+        });
+      });
+
+      document.querySelector(".newsletter").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const input = event.currentTarget.querySelector("input");
+        if (input.value.trim()) {
+          alert("Thanks for subscribing.");
+          input.value = "";
+        }
+      });
+    </script>
+  </body>
+</html>
